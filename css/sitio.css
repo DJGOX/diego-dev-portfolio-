@@ -275,3 +275,97 @@
 .disp--mac{left:12%;top:6%;width:76%}
 .disp--ipad{left:3%;bottom:4%;width:33%}
 .disp--iphone{right:3%;bottom:3%;width:20%}
+
+/* ==========================================================
+   Sitios y apps web: cada captura en monitor, iPad y iPhone
+   Misma posición en todas las tarjetas: iPad a la izquierda,
+   monitor al centro, iPhone a la derecha.
+   ========================================================== */
+.trio{container-type:inline-size;
+  background:radial-gradient(70% 60% at 50% 30%,rgba(47,91,240,.22),transparent 70%),linear-gradient(170deg,#18224A 0%,#0C1226 100%)}
+.trio > span{position:absolute;display:block;transition:transform .7s var(--ease)}
+.trio .trio__pantalla{position:relative;display:block;overflow:hidden;background:#05070D;border:solid #0B0D12;box-shadow:0 0 0 1px #3A3F4B}
+.trio .trio__pantalla img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;transform:none}
+@media (hover:hover){.proyecto:hover .trio .trio__pantalla img{transform:none}}
+/* Monitor 16:10 con su pie */
+.trio__pc{left:18%;top:6%;width:64%;z-index:1}
+.trio__pc .trio__pantalla{aspect-ratio:16/10;border-width:1.1cqw 1.1cqw 1.6cqw;border-radius:1.6cqw;box-shadow:0 0 0 1px #3A3F4B,0 3cqw 6cqw -2cqw rgba(0,0,0,.75)}
+.trio__pie{position:relative;display:block;margin:0 auto;width:12%;height:5cqw;background:linear-gradient(90deg,#7C808A,#C3C7CF 50%,#7C808A)}
+.trio__pie::after{content:"";position:absolute;left:50%;bottom:-1cqw;width:300%;height:1.2cqw;transform:translateX(-50%);border-radius:1cqw 1cqw .4cqw .4cqw;background:linear-gradient(180deg,#C9CCD3,#8D9099);box-shadow:0 1.5cqw 3cqw -1cqw rgba(0,0,0,.7)}
+/* iPad vertical 820 x 1180 */
+.trio__tab{left:5%;bottom:6%;width:23%;z-index:2}
+.trio__tab .trio__pantalla{aspect-ratio:820/1180;border-width:1.2cqw;border-radius:2.2cqw;box-shadow:0 0 0 1px #3A3F4B,0 3cqw 5cqw -1.5cqw rgba(0,0,0,.85)}
+/* iPhone 390 x 844 */
+.trio__cel{right:6%;bottom:5%;width:12.5%;z-index:3}
+.trio__cel .trio__pantalla{aspect-ratio:390/844;border-width:.9cqw;border-radius:2.6cqw;box-shadow:0 0 0 1px #3A3F4B,0 3cqw 5cqw -1.5cqw rgba(0,0,0,.9)}
+.trio__cel .trio__pantalla::before{content:"";position:absolute;z-index:1;left:50%;top:1.2cqw;width:34%;height:1.3cqw;transform:translateX(-50%);border-radius:1cqw;background:#05070D}
+@media (hover:hover){
+  .proyecto:hover .trio__pc{transform:translateY(-1.2cqw)}
+  .proyecto:hover .trio__tab{transform:translate(-1cqw,-.6cqw)}
+  .proyecto:hover .trio__cel{transform:translate(1cqw,-.6cqw)}
+}
+@media (prefers-reduced-motion:reduce){.trio > span{transition:none}}
+
+/* ==========================================================
+   Apps: "así se ve instalada" — iPhone en ángulo con la
+   pantalla de inicio + ícono 3D con notificación.
+   Todo el iPhone se mide en em: 1em = 1/500 del ancho de la escena,
+   así el encuadre es el mismo en cualquier pantalla.
+   ========================================================== */
+.instalada{grid-column:1/-1;order:3;display:grid;gap:12px;padding:12px;border-top:1px solid var(--line);background:rgba(7,11,23,.55)}
+@media (min-width:700px){.instalada{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}}
+.instalada__escena,.instalada__pieza{position:relative;overflow:hidden;border-radius:var(--r-md);container-type:inline-size}
+.instalada__escena{height:clamp(270px,26vw,360px);background:linear-gradient(150deg,#E9EBF0 0%,#C9CCD4 60%,#B4B8C2 100%)}
+.instalada__pieza{height:clamp(230px,26vw,360px);display:grid;place-items:center;background:radial-gradient(70% 70% at 50% 40%,#FFFFFF 0%,#E6E7EB 55%,#CDCFD5 100%);perspective:900px}
+.instalada__pill{position:absolute;z-index:5;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#11131A;font:600 .82rem var(--font-display);box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.instalada__pill svg{width:15px;height:15px}
+.instalada__nombre{position:absolute;left:0;right:0;bottom:14px;text-align:center;font:600 .8rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:#5B606B}
+
+/* iPhone */
+.hs{position:absolute;inset:0;font-size:calc(100cqw / 500)}
+.hs__tel{position:absolute;left:46em;top:34em;width:470em;height:980em;padding:7em;border-radius:80em;
+  background:linear-gradient(125deg,#FBFBFC 0%,#A7AAB2 18%,#ECEDF0 34%,#8A8D95 52%,#D9DADF 70%,#9C9FA7 100%);
+  box-shadow:inset 0 0 0 1.5em rgba(255,255,255,.7),inset 0 0 0 3em rgba(0,0,0,.08),-30em 50em 70em -20em rgba(20,24,34,.55);
+  transform-origin:0 0;transform:perspective(1500em) rotateX(14deg) rotateY(-16deg) rotateZ(-11deg)}
+.hs__btn{position:absolute;left:-3.5em;width:5em;border-radius:3em 0 0 3em;background:linear-gradient(90deg,#7E818A,#E7E8EC 60%,#9A9DA5)}
+.hs__btn--1{top:150em;height:34em}.hs__btn--2{top:215em;height:62em}.hs__btn--3{top:295em;height:62em}
+.hs__bisel{position:relative;height:100%;padding:9em;border-radius:73em;background:#050507}
+.hs__pantalla{position:relative;height:100%;overflow:hidden;border-radius:64em;background:var(--hs-fondo,#101218)}
+.hs__isla{position:absolute;left:50%;top:14em;width:122em;height:36em;transform:translateX(-50%);border-radius:20em;background:#000}
+.hs__hora{position:absolute;left:1.84em;top:.8em;font:600 25em/1 system-ui,-apple-system,sans-serif;color:#fff;letter-spacing:.01em}
+.hs__apps{position:absolute;left:24em;right:24em;top:98em;display:grid;grid-template-columns:repeat(4,1fr);row-gap:26em}
+.hs__app{display:flex;flex-direction:column;align-items:center;gap:7em}
+.hs__app i{position:relative;display:grid;place-items:center;width:84em;height:84em;border-radius:19em;overflow:hidden;font-style:normal;box-shadow:0 2em 6em rgba(0,0,0,.35)}
+.hs__app i svg{width:100%;height:100%}
+.hs__app b{font:500 13.5em/1.1 system-ui,-apple-system,sans-serif;color:#fff;white-space:nowrap}
+.hs__cal{flex-direction:column;gap:0;background:#fff}
+.hs__cal em{font:600 13em/1 system-ui,sans-serif;font-style:normal;color:#F23A2F;margin-top:.6em}
+.hs__cal strong{font:300 44em/1 system-ui,sans-serif;color:#111}
+
+/* Ícono 3D */
+.ico3d-flota{position:relative;animation:icoFlota 5s ease-in-out infinite}
+.ico3d{position:relative;width:min(150px,40cqw);aspect-ratio:1;border-radius:23%;transform:rotateX(26deg) rotateY(-24deg) rotateZ(5deg);transform-style:preserve-3d;
+  background:var(--ico-bg);
+  box-shadow:0 1px 0 var(--ico-borde),0 2px 0 var(--ico-borde),0 3px 0 var(--ico-borde),0 4px 0 var(--ico-borde),0 5px 0 var(--ico-borde),0 6px 0 var(--ico-borde),0 7px 0 var(--ico-borde),0 8px 0 var(--ico-borde),0 9px 0 var(--ico-borde),0 10px 0 var(--ico-borde),0 11px 0 var(--ico-borde),0 12px 0 var(--ico-borde),0 34px 34px -6px rgba(10,14,25,.38)}
+.ico3d::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.38) 0%,rgba(255,255,255,0) 45%);pointer-events:none}
+.ico3d svg{position:absolute;inset:18%;width:64%;height:64%}
+.ico3d__badge{position:absolute;left:-11%;top:-11%;display:grid;place-items:center;width:31%;aspect-ratio:1;border-radius:50%;border:4px solid #F1F2F4;background:radial-gradient(circle at 35% 30%,#5A5C63,#2A2B30 70%);color:#fff;font:600 clamp(.9rem,5cqw,1.25rem)/1 system-ui,sans-serif;transform:translateZ(26px);box-shadow:0 8px 14px -6px rgba(0,0,0,.5)}
+.ico3d-suelo{position:absolute;left:50%;bottom:-34px;width:78%;height:18px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(20,24,34,.32),transparent);filter:blur(2px);animation:icoSuelo 5s ease-in-out infinite}
+@keyframes icoFlota{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes icoSuelo{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}50%{opacity:.7;transform:translateX(-50%) scale(.9)}}
+@media (prefers-reduced-motion:reduce){.ico3d-flota,.ico3d-suelo{animation:none}}
+.ico3d-caja{position:relative}
+
+/* ==========================================================
+   Apps: insignia "Próximamente en App Store"
+   Estilo de la insignia oficial, sin enlace: aún no están publicadas.
+   ========================================================== */
+.tienda{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:6px}
+.tienda__insignia{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 11px;border-radius:11px;background:#000;border:1px solid #A6A6A6;color:#fff;line-height:1;user-select:none}
+.tienda__insignia svg{width:22px;height:26px;flex:none;fill:currentColor}
+.tienda__insignia span{display:flex;flex-direction:column;gap:2px}
+.tienda__insignia small{font:500 .66rem/1 system-ui,-apple-system,sans-serif;letter-spacing:.01em}
+.tienda__insignia strong{font:600 1.32rem/1 system-ui,-apple-system,sans-serif;letter-spacing:-.02em}
+.tienda__nota{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;color:var(--muted)}
+.tienda__nota::before{content:"";width:7px;height:7px;border-radius:50%;background:#F5B83D;box-shadow:0 0 0 4px rgba(245,184,61,.16)}
+.tienda__insignia svg.tienda__gp{width:22px;height:24px}

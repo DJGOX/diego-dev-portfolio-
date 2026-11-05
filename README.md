@@ -6,8 +6,11 @@ English by default, with an EN / ES switch (also `?lang=es`).
 
 ## What's inside
 
-- **Apps:** Manacus, Lifetime and FUFI (iPhone, iPad & Mac)
-- **Websites & web apps:** Ruta MA, Pollos El Chalán and Peruflavor
+- **Apps:** Manacus, Lifetime and FUFI (iPhone, iPad, Mac & Android), coming soon to the App Store and Google Play
+- **Web apps & systems:** Ruta MA, Turrones D'Miel and POS Check
+- **Business websites:** Pollos El Chalán, Peru of Flavors, SONICA, Hotel V&P Huancayo, AJA Tree Service, DJ GOX and Worcester Fluids Technology
+- **Websites for nonprofits:** Pumawari Tusuy Boston and Los Tunanteros de Boston
+- Every website is shown on a monitor, iPad and iPhone using real captures at each size
 - **Custom NFC cards** as a physical option for any app or website
 - Contact by WhatsApp or email, with a form that drafts the message
 
@@ -29,6 +32,7 @@ js/idioma.js      English / Spanish text and WhatsApp messages
 js/firma.js       smooth scroll and the hero entrance
 js/main.js        menu, form, mobile bar and scroll animations
 img/              logo, icons, share image and project screenshots
+img/proyectos/trio/  desktop, iPad and iPhone captures of each website
 ```
 
 ## Run locally
