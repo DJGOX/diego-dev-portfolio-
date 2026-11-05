@@ -13,7 +13,7 @@
 
   const ES = {
     'meta.title': 'Diego Porras · Desarrollador web y de apps en Massachusetts',
-    'meta.desc': 'Soy Diego Porras, desarrollador freelance en Brookline, Massachusetts. Creo sitios web y aplicaciones a la medida de tu negocio, con trato directo.',
+    'meta.desc': 'Soy Diego Porras, desarrollador freelance en Boston, Massachusetts. Creo sitios web y aplicaciones a la medida de tu negocio, con trato directo.',
     skip: 'Saltar al contenido',
     'logo.aria': 'Diego Dev, inicio',
     'nav.aria': 'Principal',
@@ -38,7 +38,7 @@
     'about.b2': 'A la medida, nada de plantillas',
     'about.b3': 'Avances que ves en cada etapa',
     'about.b4': 'Te explico cómo seguir por tu cuenta',
-    'card.aria': 'Datos de contacto', 'card.loc': 'Ubicación', 'card.locv': 'Brookline, Massachusetts · trabajo remoto',
+    'card.aria': 'Datos de contacto', 'card.loc': 'Ubicación', 'card.locv': 'Boston, Massachusetts · trabajo remoto',
     'card.email': 'Correo', 'card.phone': 'Teléfono', 'card.profiles': 'Perfiles',
     'srv.eyebrow': 'Mis servicios',
     'srv.title': 'Lo que puedo hacer por tu negocio',

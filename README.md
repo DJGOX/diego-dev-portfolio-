@@ -1,6 +1,6 @@
 # Diego Dev · Portfolio
 
-Personal portfolio of **Diego Ernesto Porras Vera**, freelance web & app developer in Brookline, Massachusetts.
+Personal portfolio of **Diego Ernesto Porras Vera**, freelance web & app developer in Boston, Massachusetts.
 
 English by default, with an EN / ES switch (also `?lang=es`).
 
