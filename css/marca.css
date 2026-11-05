@@ -1,0 +1,243 @@
+/* ==========================================================
+   Diego Dev · sistema de marca
+   Dirección de arte: "Horizonte nocturno"
+   Lo usan direccion-de-arte.html y el sitio (index.html)
+   ========================================================== */
+
+@font-face{font-family:"Space Grotesk";src:url(../fonts/spacegrotesk-var.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Manrope";src:url(../fonts/manrope-var.woff2) format("woff2");font-weight:200 800;font-display:swap}
+
+:root{
+  /* Color: identidad de Diego Dev */
+  --brand:#2F5BF0;          /* azul del símbolo D */
+  --brand-press:#2550E0;    /* azul presionado */
+  --brand-soft:#1C2A5C;     /* azul hundido para fondos de íconos sobre oscuro */
+  --brand-on-dark:#8CA8FF;  /* azul señal: texto y trazos sobre oscuro */
+  --cta:#2F5BF0;
+  --cta-ink:#FFFFFF;
+  --cta-hover:#2550E0;
+  --ink:#0B1020;            /* noche */
+  --night-2:#101830;        /* noche un paso más clara (secciones alternas) */
+  --bg:#0B1020;
+  --surface:#141D33;        /* tarjetas */
+  --line:#29334B;
+  --muted:#A9B4CA;
+  --ice:#F3F6FC;            /* texto principal y secciones claras */
+  --ice-muted:#526078;
+  --error:#FF6B6B;
+
+  /* Tipografía */
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-body:"Manrope",system-ui,sans-serif;
+  --fs-hero:clamp(2.6rem,1.6rem + 5.2vw,5.6rem);
+  --fs-h2:clamp(2rem,1.4rem + 2.6vw,3.4rem);
+  --fs-h3:clamp(1.15rem,1.05rem + .4vw,1.35rem);
+  --fs-body:clamp(1rem,.96rem + .2vw,1.1rem);
+  --fs-small:.875rem;
+
+  /* Forma: el D tiene esquinas rectas a la izquierda y curva a la derecha */
+  --r-xl:22px; --r-lg:16px; --r-md:12px; --r-sm:8px;
+  --stroke:1.75;            /* grosor de los íconos propios */
+
+  /* Movimiento: preciso y sereno */
+  --ease:cubic-bezier(.25,1,.5,1);
+  --ease-io:cubic-bezier(.76,0,.24,1);
+  --ease-pop:cubic-bezier(.34,1.3,.64,1);
+  --dur:.8s;
+  --dist:22px;
+  --t-hover:.35s;
+
+  /* Espacio */
+  --gutter:clamp(16px,4.4vw,64px);
+  --maxw:1240px;
+  --section-y:clamp(72px,9vw,128px);
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:dark;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ice);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.04;letter-spacing:-.025em;margin:0}
+p{margin:0}
+.wrap{width:100%;max-width:calc(var(--maxw) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--brand-on-dark);outline-offset:3px;border-radius:4px}
+
+/* Lenis */
+html.lenis,html.lenis body{height:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+
+/* ---------- Ceja: barra con la ranura del logo ---------- */
+.ceja{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:.8rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-on-dark)}
+.ceja::before{content:"";width:18px;height:7px;background:currentColor;clip-path:polygon(0 100%,100% 0,100% 45%,0 145%);transform:translateY(1px)}
+
+/* ---------- Íconos ---------- */
+.ico{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:var(--stroke);stroke-linecap:round;stroke-linejoin:round}
+.ico--fill{fill:currentColor;stroke:none}
+.tech{display:block;width:var(--s,22px);height:var(--s,22px);background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+
+/* ---------- Botones ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r-md);font-family:var(--font-display);font-weight:600;font-size:1rem;text-decoration:none;white-space:nowrap;cursor:pointer;border:1px solid transparent;
+  transition:background-color var(--t-hover) var(--ease),border-color var(--t-hover) var(--ease),color var(--t-hover) var(--ease),scale .15s var(--ease)}
+.btn .ico{width:20px;height:20px;transition:transform var(--t-hover) var(--ease)}
+.btn--primary{background:var(--cta);color:var(--cta-ink)}
+.btn--ghost{background:transparent;color:var(--ice);border-color:var(--line)}
+@media (hover:hover){
+  .btn--primary:hover{background:var(--cta-hover)}
+  .btn--ghost:hover{border-color:var(--brand-on-dark);color:var(--brand-on-dark)}
+  .btn:hover .ico{transform:translate(2px,-2px)}
+}
+.btn:active{scale:.97}
+.btn--sm{min-height:44px;padding:0 16px;font-size:.92rem}
+
+/* ---------- Navegación ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent}
+.nav.is-solid{background:rgba(11,16,32,.86);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-color:var(--line)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.nav__logo{display:block;height:34px}
+.nav__logo svg{height:100%;width:auto}
+.nav__links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+.nav__links a{position:relative;font-size:.95rem;color:var(--muted);text-decoration:none;padding:10px 0;transition:color var(--t-hover) var(--ease)}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--brand-on-dark);transform:scaleX(0);transform-origin:left;transition:transform var(--t-hover) var(--ease)}
+.nav__links a:hover,.nav__links a[aria-current="true"]{color:var(--ice)}
+.nav__links a:hover::after,.nav__links a[aria-current="true"]::after{transform:scaleX(1)}
+.nav__toggle{display:none}
+@media (max-width:899px){
+  .nav__links,.nav__cta{display:none}
+  .nav__toggle{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 4px 0 12px;background:none;border:0;color:var(--ice);font:600 .95rem var(--font-display);cursor:pointer}
+  .nav__logo{height:30px}
+}
+
+/* ==========================================================
+   PORTADA
+   ========================================================== */
+.portada{position:relative;min-height:100svh;display:flex;flex-direction:column;isolation:isolate;overflow:clip;
+  background:
+    radial-gradient(120% 70% at 72% 100%,rgba(47,91,240,.30),transparent 62%),
+    radial-gradient(60% 50% at 10% 0%,rgba(140,168,255,.08),transparent 70%),
+    linear-gradient(180deg,#070B17 0%,var(--ink) 55%,#0E1630 100%)}
+/* estrellas: puntos muy tenues, en CSS */
+.portada::before{content:"";position:absolute;inset:0 0 40% 0;z-index:-2;opacity:.5;pointer-events:none;
+  background-image:radial-gradient(1px 1px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 34% 8%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 58% 22%,#c9d6ff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 81% 12%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 91% 34%,#c9d6ff 50%,transparent 51%),radial-gradient(1px 1px at 46% 38%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 6% 44%,#c9d6ff 50%,transparent 51%),radial-gradient(1px 1px at 69% 4%,#fff 50%,transparent 51%)}
+
+.horizonte{position:absolute;left:0;right:0;bottom:0;z-index:-1;height:clamp(130px,19vw,280px);pointer-events:none}
+.horizonte svg{width:100%;height:100%}
+/* Horizonte de Boston: State House, puente Longfellow con el tren T, Custom House, Prudential y Torre Hancock */
+.h-edif{fill:#0A0F1F}
+.h-borde{fill:none;stroke:var(--brand-on-dark);stroke-width:1.2;stroke-opacity:.45;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.h-detalle{fill:none;stroke:var(--brand-on-dark);stroke-width:1;stroke-opacity:.4;vector-effect:non-scaling-stroke}
+.h-luz{fill:var(--brand-on-dark);opacity:.55}
+.h-letrero{fill:none;stroke:var(--brand-on-dark);stroke-width:1.3;stroke-opacity:.75;vector-effect:non-scaling-stroke}
+.h-vagon{fill:#16214A;stroke:var(--brand-on-dark);stroke-width:1;stroke-opacity:.7;vector-effect:non-scaling-stroke}
+.h-ventana{fill:#C9D6FF;opacity:.8}
+/* el Zakim va al fondo, más tenue, detrás del Longfellow y del tren */
+.h-fondo .f-pieza{fill:#121B3C;stroke:var(--brand-on-dark);stroke-width:1;stroke-opacity:.28;vector-effect:non-scaling-stroke}
+.h-fondo .f-cable{fill:none;stroke:var(--brand-on-dark);stroke-width:.8;stroke-opacity:.22;vector-effect:non-scaling-stroke}
+.h-agua{fill:none;stroke:var(--brand-on-dark);stroke-width:1;stroke-opacity:.18;vector-effect:non-scaling-stroke}
+/* el tren T cruza el puente despacio, una y otra vez */
+.h-tren{transform:translateX(470px);animation:trenT 16s linear infinite}
+@keyframes trenT{0%{transform:translateX(236px)}55%,100%{transform:translateX(724px)}}
+@media (prefers-reduced-motion:reduce){.h-tren{animation:none;transform:translateX(470px)}}
+
+.portada__grid{position:relative;z-index:1;flex:1;display:grid;grid-template-columns:1fr;gap:40px;align-items:center;padding-top:104px;padding-bottom:28px}
+@media (min-width:900px){
+  .portada__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,4vw,72px);padding-top:120px}
+}
+.portada__texto{position:relative;z-index:2;max-width:620px}
+.portada__hola{display:block;margin-bottom:18px}
+.portada__titulo{font-size:var(--fs-hero);font-weight:600;line-height:.98;letter-spacing:-.035em}
+.portada__linea{display:block;overflow:hidden;padding:.15em .12em .15em 0;margin:-.15em -.12em -.15em 0}
+.portada__linea-in{display:block}
+.portada__titulo .acento{color:var(--brand-on-dark)}
+.portada__rol{display:block;margin-top:.5em;font-size:.42em;letter-spacing:-.015em;font-weight:500;color:var(--ice)}
+.portada__desc{margin-top:22px;max-width:30em;color:var(--muted)}
+.portada__acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.portada__acciones .btn--primary{z-index:2}
+
+/* Ventana D: la imagen protagonista */
+.ventana{position:relative;z-index:1;width:min(100%,600px);justify-self:end;aspect-ratio:6/5}
+.ventana__abre{position:absolute;inset:0}
+.ventana__marco{position:absolute;inset:0;overflow:hidden;background:var(--surface);border:1px solid rgba(140,168,255,.22);
+  border-radius:var(--r-xl) 50% 50% var(--r-xl) / var(--r-xl) 50% 50% var(--r-xl);
+  box-shadow:0 40px 90px -30px rgba(47,91,240,.55)}
+.ventana__barra{position:absolute;inset:0 0 auto 0;height:34px;display:flex;align-items:center;gap:6px;padding-left:18px;background:#0F1730;border-bottom:1px solid var(--line);z-index:1}
+.ventana__barra i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.ventana__barra span{margin-left:10px;font:500 .7rem/1 var(--font-display);letter-spacing:.06em;color:var(--muted)}
+.ventana__img{position:absolute;inset:34px 0 0 0;width:100%;height:calc(100% - 34px);object-fit:cover;object-position:left top}
+/* celular encima */
+.ventana__cel{position:absolute;z-index:3;left:-6%;bottom:-6%;width:30%;aspect-ratio:9/19;border-radius:22px;padding:6px;background:#060A15;border:1px solid rgba(140,168,255,.28);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ventana__cel img{width:100%;height:100%;border-radius:16px;object-fit:cover;object-position:center}
+.ventana__etiqueta{position:absolute;z-index:3;right:6%;bottom:-4%;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-md);background:rgba(20,29,51,.92);border:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.ventana__etiqueta b{display:block;color:var(--ice);font:600 .88rem var(--font-display)}
+.ventana__etiqueta .ico{color:var(--brand-on-dark)}
+@media (max-width:899px){
+  .ventana{justify-self:center;width:min(100%,460px);margin-bottom:24px}
+  .ventana__cel{left:-2%;width:28%}
+  .ventana__etiqueta{right:0}
+}
+
+/* Camino: el trazo que va de la ranura al botón */
+.camino{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
+.camino path{fill:none;stroke:var(--brand-on-dark);stroke-width:1.5;stroke-linecap:round;stroke-opacity:.7}
+
+/* Franja de herramientas */
+.herramientas{position:relative;z-index:1;padding-bottom:clamp(28px,4vw,48px)}
+.herramientas__in{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.herramientas__tit{font-size:var(--fs-small);color:var(--muted)}
+.herramientas ul{display:flex;flex-wrap:wrap;gap:12px 26px;list-style:none;margin:0;padding:0}
+.herramientas li{display:flex;align-items:center;gap:8px;font:500 .9rem var(--font-display);color:var(--ice);opacity:.85}
+.herramientas li .tech{--s:18px;color:var(--brand-on-dark)}
+
+/* Estados ocultos para la entrada: solo con JS y con rescate */
+.js .portada__linea-in{transform:translateY(130%);animation:rescateLinea 0s 6s forwards}
+.js [data-pieza]{visibility:hidden;animation:rescate 0s 6s forwards}
+.gsap-ok .portada__linea-in,.gsap-ok [data-pieza]{animation:none}
+@keyframes rescateLinea{to{transform:none}}
+@keyframes rescate{to{visibility:visible}}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta{position:relative;display:flex;flex-direction:column;gap:14px;padding:28px 26px 26px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);overflow:hidden;
+  transition:border-color var(--t-hover) var(--ease),transform var(--t-hover) var(--ease)}
+.tarjeta__ico{display:grid;place-items:center;width:52px;height:52px;border-radius:var(--r-md) 50% 50% var(--r-md);background:var(--brand-soft);color:var(--brand-on-dark)}
+.tarjeta__ico .ico{width:26px;height:26px}
+.tarjeta h3{font-size:var(--fs-h3)}
+.tarjeta p{color:var(--muted);font-size:.97rem}
+.tarjeta::after{content:"";position:absolute;right:-30px;top:22px;width:120px;height:14px;background:var(--brand-on-dark);opacity:0;clip-path:polygon(0 100%,100% 0,100% 40%,0 140%);transition:opacity var(--t-hover) var(--ease),transform var(--t-hover) var(--ease);transform:translateX(20px)}
+@media (hover:hover){
+  .tarjeta:hover{border-color:rgba(140,168,255,.45);transform:translateY(-4px)}
+  .tarjeta:hover::after{opacity:.18;transform:none}
+}
+
+/* ---------- Menos movimiento ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  .js .portada__linea-in{transform:none}
+  .js [data-pieza]{visibility:visible}
+}
+
+/* Pantallas medianas: el celular no tapa el texto */
+@media (min-width:900px) and (max-width:1199px){
+  .portada__grid{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:56px}
+  .portada__titulo{font-size:clamp(2.6rem,1.2rem + 4.2vw,4.4rem)}
+  .ventana__cel{left:0;width:27%}
+}
+
+/* "Construyo con" vive debajo de los botones: el horizonte queda libre al pie de la portada */
+.herramientas{margin-top:64px;padding-bottom:0}
+.herramientas__in{gap:10px 20px}
+.herramientas ul{gap:10px 20px}
+.portada__grid{padding-bottom:calc(clamp(130px,19vw,280px) * .78)}
+
+/* Celular: texto y botones, luego la ventana con tus apps, y al final "Construyo con" */
+@media (max-width:899px){
+  .portada__grid{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .portada__texto{display:contents}
+  .portada__texto > *{order:1}
+  .portada__grid > .ventana{order:2;margin-top:44px}
+  .portada__texto > .herramientas{order:3;margin-top:36px}
+}

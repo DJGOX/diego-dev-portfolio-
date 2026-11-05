@@ -1,0 +1,277 @@
+/* ==========================================================
+   Diego Dev · estilos de las secciones del sitio
+   (los tokens, la portada, botones y tarjetas viven en marca.css)
+   ========================================================== */
+
+.saltar{position:absolute;left:12px;top:-60px;z-index:100;padding:10px 14px;border-radius:var(--r-sm);background:var(--cta);color:#fff;font-weight:600}
+.saltar:focus{top:12px}
+
+/* ---------- Menú del celular ---------- */
+.menu{position:fixed;inset:0;z-index:60;background:rgba(7,11,23,.97);overflow-y:auto}
+.menu[hidden]{display:none}
+.menu__inner{display:flex;flex-direction:column;gap:28px;min-height:100%;padding-top:16px;padding-bottom:40px}
+.menu__cerrar{align-self:flex-end;display:grid;place-items:center;width:48px;height:48px;background:none;border:1px solid var(--line);border-radius:var(--r-md);color:var(--ice);cursor:pointer}
+.menu ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.menu ul a{display:block;padding:12px 0;font:600 clamp(1.8rem,8vw,2.4rem)/1.1 var(--font-display);letter-spacing:-.02em;text-decoration:none;border-bottom:1px solid var(--line)}
+.menu .btn{align-self:flex-start}
+
+/* ---------- Secciones ---------- */
+.seccion{position:relative;padding-block:var(--section-y)}
+.h2{font-size:var(--fs-h2);margin-top:14px}
+.linea-mask,.palabra-mask{padding:.15em .12em .15em 0;margin:-.15em -.12em -.15em 0}
+.cabeza{margin-bottom:clamp(36px,5vw,56px)}
+.cabeza--centro{text-align:center}
+.cabeza--centro .h2{max-width:16ch;margin-inline:auto}
+.cabeza--fila{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+.enlace-flecha{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 .95rem var(--font-display);color:var(--brand-on-dark);text-decoration:none;overflow-wrap:anywhere}
+.enlace-flecha .ico{width:18px;height:18px;transition:transform var(--t-hover) var(--ease)}
+@media (hover:hover){.enlace-flecha:hover .ico{transform:translate(2px,-2px)}}
+
+/* ---------- Sobre mí ---------- */
+.sobre{background:var(--night-2)}
+.sobre__grid{display:grid;gap:48px;align-items:center}
+@media (min-width:900px){.sobre__grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(48px,6vw,96px)}}
+.sobre__texto > p{margin-top:18px;color:var(--muted);max-width:36em}
+.sobre__texto > .sobre__lead{margin-top:22px;color:var(--ice);font:500 1.15rem/1.5 var(--font-display)}
+.sobre__puntos{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
+@media (min-width:600px){.sobre__puntos{grid-template-columns:1fr 1fr}}
+.sobre__puntos li{display:flex;align-items:center;gap:10px;font-size:.97rem}
+.sobre__puntos .ico{width:20px;height:20px;color:var(--brand-on-dark)}
+
+.ficha{position:relative;overflow:hidden;padding:clamp(24px,3vw,36px);border-radius:var(--r-xl);background:var(--surface);border:1px solid var(--line)}
+.ficha__d{position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;fill:var(--brand);opacity:.07;pointer-events:none}
+.ficha__lista{position:relative;list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.ficha__lista li{display:flex;gap:16px;align-items:flex-start;min-width:0}
+.ficha__lista li > span:last-child{min-width:0;overflow-wrap:break-word}
+.ficha__lista small{display:block;margin-bottom:2px;font-size:.8rem;color:var(--muted)}
+.ficha__lista a{text-decoration:none}
+@media (hover:hover){.ficha__lista a:hover{color:var(--brand-on-dark)}}
+.ficha__ico{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-sm) 50% 50% var(--r-sm);background:var(--brand-soft);color:var(--brand-on-dark)}
+.ficha__ico .ico{width:20px;height:20px}
+.ficha__redes{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ficha__redes a{display:inline-flex;align-items:center;gap:8px;min-height:32px}
+.ficha__redes .tech{color:var(--brand-on-dark)}
+.ficha__btn{position:relative;margin-top:28px;width:100%}
+
+/* ---------- Servicios ---------- */
+.servicios__grid{display:grid;gap:16px}
+@media (min-width:640px){.servicios__grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.servicios__grid{grid-template-columns:repeat(4,1fr)}}
+.tarjeta__enlace{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:auto;font:600 .92rem var(--font-display);color:var(--brand-on-dark);text-decoration:none}
+.tarjeta__enlace .ico{width:18px;height:18px;transition:transform var(--t-hover) var(--ease)}
+@media (hover:hover){.tarjeta__enlace:hover .ico{transform:translate(2px,-2px)}}
+/* la tarjeta completa se puede tocar */
+.tarjeta__enlace::before{content:"";position:absolute;inset:0;z-index:1}
+
+/* ---------- Proyectos ---------- */
+.proyectos{background:var(--night-2)}
+.proyectos__grid{display:grid;gap:20px}
+@media (min-width:760px){.proyectos__grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.proyectos__grid{grid-template-columns:repeat(3,1fr)}}
+.proyecto{display:flex;flex-direction:column;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:border-color var(--t-hover) var(--ease)}
+@media (hover:hover){.proyecto:hover{border-color:rgba(140,168,255,.45)}}
+.proyecto__media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#0F1730}
+.proyecto__media img{width:100%;height:100%;object-fit:cover;object-position:left top;transition:transform .9s var(--ease)}
+.proyecto__media--foto img{object-position:center 60%}
+@media (hover:hover){.proyecto:hover .proyecto__media img{transform:scale(1.04)}}
+.proyecto__marca{position:absolute;left:18px;bottom:14px;font:600 1.6rem var(--font-display);color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.proyecto__info{display:flex;flex-direction:column;gap:12px;flex:1;padding:24px 24px 22px}
+.proyecto__tipo{font:500 .78rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--brand-on-dark)}
+.proyecto h3{font-size:1.45rem}
+.proyecto p{color:var(--muted);font-size:.96rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:4px 0 0;padding:0}
+.chips li{padding:5px 10px;border-radius:999px;border:1px solid var(--line);font-size:.8rem;color:var(--ice)}
+.proyecto__enlaces{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:auto;padding-top:8px}
+.proyecto__enlaces a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:600 .92rem var(--font-display);text-decoration:none;color:var(--ice)}
+.proyecto__enlaces a:first-child{color:var(--brand-on-dark)}
+.proyecto__enlaces .ico{width:18px;height:18px}
+@media (hover:hover){.proyecto__enlaces a:hover{text-decoration:underline;text-underline-offset:4px}}
+
+/* ---------- Cómo trabajo ---------- */
+.proceso__grid{display:grid;gap:40px}
+@media (min-width:900px){.proceso__grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(48px,6vw,96px);align-items:start}}
+.proceso__intro{margin-top:18px;color:var(--muted);max-width:30em}
+.pasos-caja{position:relative}
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:30px}
+.pasos__linea{position:absolute;left:21px;top:10px;bottom:10px;width:4px;height:calc(100% - 20px)}
+.pasos__linea path{fill:none;stroke:var(--line);stroke-width:2}
+.js .pasos__linea path{stroke:var(--brand-on-dark);stroke-opacity:.6}
+.pasos li{position:relative;display:flex;gap:22px;align-items:flex-start}
+.pasos__num{position:relative;z-index:1;flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:var(--r-sm) 50% 50% var(--r-sm);background:var(--surface);border:1px solid var(--line);font:600 .9rem var(--font-display);color:var(--brand-on-dark)}
+.pasos h3{font-size:var(--fs-h3);margin-top:10px}
+.pasos p{margin-top:6px;color:var(--muted)}
+
+/* ---------- Contacto ---------- */
+.contacto{overflow:clip;isolation:isolate;padding-bottom:calc(var(--section-y) + clamp(110px,15vw,220px));
+  background:radial-gradient(90% 70% at 50% 100%,rgba(47,91,240,.34),transparent 65%),linear-gradient(180deg,var(--bg),#0E1630)}
+.contacto__fondo{position:absolute;inset:auto 0 0 0;height:clamp(130px,19vw,280px);z-index:-1;pointer-events:none}
+.contacto__fondo svg{width:100%;height:100%}
+.contacto__grid{display:grid;gap:44px;align-items:start}
+@media (min-width:900px){.contacto__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,6vw,96px)}}
+.contacto__titulo{max-width:14ch}
+.contacto__texto > p{margin-top:18px;color:var(--muted);max-width:30em}
+.contacto__directo{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:30px}
+.contacto__directo .btn .tech{color:#fff}
+
+.form{display:grid;gap:16px;padding:clamp(22px,3vw,34px);border-radius:var(--r-xl);background:rgba(20,29,51,.92);border:1px solid var(--line)}
+.form h3{font-size:1.3rem}
+.form__intro{margin-top:-8px;color:var(--muted);font-size:.95rem}
+.form__fila{display:grid;gap:16px}
+@media (min-width:600px){.form__fila{grid-template-columns:1fr 1fr}}
+.campo{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+.campo em{font-style:normal;font-weight:400;color:var(--muted)}
+.campo input,.campo select,.campo textarea{width:100%;min-height:48px;padding:12px 14px;border-radius:var(--r-md);background:var(--ink);color:var(--ice);border:1px solid #3A4663;font:400 1rem var(--font-body);transition:border-color var(--t-hover) var(--ease)}
+.campo textarea{resize:vertical;min-height:110px}
+.campo input::placeholder,.campo textarea::placeholder{color:#7F8BA6}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--brand-on-dark);box-shadow:0 0 0 3px rgba(140,168,255,.2)}
+.campo [aria-invalid="true"]{border-color:var(--error)}
+.form__error{color:var(--error);font-size:.9rem;font-weight:600}
+.form__acciones{display:flex;flex-wrap:wrap;gap:12px}
+.form__nota{font-size:.82rem;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.pie{border-top:1px solid var(--line);background:#070B17;padding-block:36px calc(36px + env(safe-area-inset-bottom))}
+.pie__grid{display:grid;gap:22px;align-items:center}
+@media (min-width:900px){.pie__grid{grid-template-columns:1fr auto 1fr}}
+.pie__marca img{height:40px;width:auto}
+.pie__marca p{margin-top:8px;font-size:.9rem;color:var(--muted)}
+.pie__legal{font-size:.85rem;color:var(--muted)}
+.pie__redes{display:flex;gap:10px;list-style:none;margin:0;padding:0}
+@media (min-width:900px){.pie__redes{justify-content:flex-end}}
+.pie__redes a{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-md);border:1px solid var(--line);color:var(--ice);transition:border-color var(--t-hover) var(--ease),color var(--t-hover) var(--ease)}
+.pie__redes .ico{width:19px;height:19px}
+@media (hover:hover){.pie__redes a:hover{border-color:var(--brand-on-dark);color:var(--brand-on-dark)}}
+
+/* ---------- Barra fija del celular ---------- */
+.barra-cel{display:none}
+@media (max-width:899px){
+  .barra-cel{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,16,32,0),rgba(11,16,32,.94) 38%);transform:translateY(110%);transition:transform .45s var(--ease)}
+  .barra-cel.is-on{transform:none}
+  .barra-cel .btn{width:100%}
+  .barra-cel .btn .tech{color:#fff}
+  .pie{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+}
+
+/* ---------- Estados para animar: solo con JS ---------- */
+.js [data-reveal]{opacity:0;animation:aparece 0s 5s forwards}
+.js [data-reveal-grupo] > *{opacity:0;animation:aparece 0s 5s forwards}
+.gsap-ok [data-reveal],.gsap-ok [data-reveal-grupo] > *{animation:none}
+@keyframes aparece{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal],.js [data-reveal-grupo] > *{opacity:1}
+  .barra-cel{transition:none}
+}
+
+/* ---------- Selector de idioma EN / ES ---------- */
+.nav__der{display:flex;align-items:center;gap:14px}
+.idioma{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(20,29,51,.6)}
+.idioma button{min-width:44px;min-height:38px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:600 .82rem var(--font-display);letter-spacing:.06em;cursor:pointer;transition:background-color var(--t-hover) var(--ease),color var(--t-hover) var(--ease)}
+.idioma button[aria-pressed="true"]{background:var(--brand-soft);color:var(--ice);box-shadow:inset 0 0 0 1px rgba(140,168,255,.35)}
+@media (hover:hover){.idioma button[aria-pressed="false"]:hover{color:var(--ice)}}
+@media (max-width:899px){.nav__der{gap:6px}.idioma button{min-width:42px;min-height:42px;padding:0 8px}}
+
+/* ---------- Proyecto destacado (Manacus) ---------- */
+.proyecto--destacado{grid-column:1/-1;background:linear-gradient(140deg,rgba(47,91,240,.14),transparent 55%),var(--surface)}
+@media (min-width:900px){.proyecto--destacado{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:stretch}}
+.proyecto__galeria{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:10px;padding:14px;background:var(--ice)}
+.proyecto__principal{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-md)}
+.proyecto__miniaturas{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px}
+.proyecto__miniaturas img{width:100%;height:110px;object-fit:cover;object-position:center top;border-radius:var(--r-sm);background:#fff}
+@media (max-width:599px){.proyecto__miniaturas img{height:78px}}
+.proyecto--destacado .proyecto__info{padding:clamp(24px,3vw,40px);gap:14px}
+.proyecto--destacado h3{font-size:clamp(1.7rem,1.3rem + 1.2vw,2.3rem)}
+.proyecto__funciones{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:9px}
+.proyecto__funciones li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+.proyecto__funciones .ico{width:19px;height:19px;margin-top:2px;color:var(--brand-on-dark)}
+
+/* ---------- Lifetime: tres pantallas de iPhone, galería a la derecha ---------- */
+.proyecto__galeria--cel{flex-direction:row;align-items:flex-start;justify-content:center;gap:clamp(8px,1.4vw,16px);padding:clamp(16px,2.4vw,28px);background:linear-gradient(160deg,#17A05A 0%,#2369E8 55%,#1E3C8C 100%)}
+.proyecto__galeria--cel img{flex:1;min-width:0;max-width:200px;height:auto;aspect-ratio:921/2000;object-fit:cover;object-position:top;border-radius:clamp(10px,1.4vw,18px);box-shadow:0 18px 40px -18px rgba(0,0,0,.55)}
+.proyecto__galeria--cel img:nth-child(2){margin-top:clamp(14px,2.4vw,34px)}
+@media (min-width:900px){
+  .proyecto--invertido{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+  .proyecto--invertido .proyecto__galeria{order:2}
+  .proyecto__galeria--cel{align-items:center}
+}
+
+/* ---------- Grupos de proyectos: apps y sitios ---------- */
+.proyectos__grupo{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:18px 0 -4px;font:600 .82rem var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.proyectos__grupo:first-child{margin-top:0}
+.proyectos__grupo::after{content:"";flex:1;height:1px;background:var(--line)}
+.proyectos__grupo small{order:1;display:grid;place-items:center;min-width:26px;height:22px;padding:0 6px;border-radius:999px;border:1px solid var(--line);font-size:.75rem;letter-spacing:0;color:var(--brand-on-dark)}
+.proyectos__grupo span{order:0}
+
+/* ==========================================================
+   NFC: tarjetas personalizadas
+   ========================================================== */
+.nfc{overflow:clip;background:radial-gradient(70% 60% at 20% 50%,rgba(47,91,240,.22),transparent 70%),var(--bg)}
+.nfc__grid{display:grid;gap:48px;align-items:center}
+@media (min-width:900px){.nfc__grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(48px,6vw,96px)}}
+.nfc__intro{margin-top:18px;color:var(--muted);max-width:34em}
+.nfc__intro strong{color:var(--ice);font-weight:700}
+.nfc__usos{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+@media (min-width:600px){.nfc__usos{grid-template-columns:1fr 1fr}}
+.nfc__usos li{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.nfc__usos h3{font-size:1rem;line-height:1.25}
+.nfc__usos p{margin-top:4px;font-size:.9rem;color:var(--muted);line-height:1.45}
+.nfc__ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:var(--r-sm) 50% 50% var(--r-sm);background:var(--brand-soft);color:var(--brand-on-dark)}
+.nfc__ico .ico{width:21px;height:21px}
+.nfc__btn{margin-top:28px}
+
+/* La tarjeta: proporción real de una tarjeta (85.6 x 54 mm) */
+.nfc__visual{position:relative;display:grid;place-items:center;min-height:clamp(260px,34vw,420px);padding:24px 0}
+.nfc__tarjeta{position:relative;z-index:2;width:min(100%,400px);aspect-ratio:85.6/54;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,2.4vw,28px);border-radius:clamp(14px,1.6vw,20px);color:var(--ice);
+  background:radial-gradient(120% 140% at 100% 0%,rgba(140,168,255,.35),transparent 55%),linear-gradient(135deg,#1C2A5C 0%,var(--brand) 60%,var(--brand-press) 100%);
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 80px -30px rgba(47,91,240,.7),inset 0 1px 0 rgba(255,255,255,.2);
+  transform:rotate(-8deg);animation:nfcFlota 7s ease-in-out infinite}
+.nfc__tarjeta--atras{position:absolute;z-index:1;inset:auto;width:min(86%,350px);transform:translate(12%,14%) rotate(6deg);background:linear-gradient(135deg,var(--surface),#0F1730);border-color:var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);animation:none}
+.nfc__tarjeta-arriba{display:flex;justify-content:space-between;align-items:flex-start}
+.nfc__d{width:clamp(34px,4vw,46px);height:auto;fill:#fff}
+.nfc__simbolo{width:30px;height:30px;color:#fff;opacity:.9}
+.nfc__chip{width:clamp(34px,4vw,44px);aspect-ratio:4/3;border-radius:7px;background:linear-gradient(135deg,#E9EEF9,#AEB9D3);box-shadow:inset 0 0 0 1px rgba(11,16,32,.25)}
+.nfc__tarjeta-abajo b{display:block;font:600 clamp(1.05rem,1.4vw,1.3rem) var(--font-display);letter-spacing:-.01em}
+.nfc__tarjeta-abajo span{font:500 .78rem var(--font-display);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+/* ondas del toque */
+.nfc__ondas{position:absolute;z-index:0;inset:0;display:grid;place-items:center;pointer-events:none}
+.nfc__ondas i{grid-area:1/1;width:min(70%,300px);aspect-ratio:1;border-radius:50%;border:1.5px solid var(--brand-on-dark);opacity:0;animation:nfcOnda 3.6s ease-out infinite}
+.nfc__ondas i:nth-child(2){animation-delay:1.2s}
+.nfc__ondas i:nth-child(3){animation-delay:2.4s}
+@keyframes nfcOnda{0%{transform:scale(.55);opacity:.55}100%{transform:scale(1.35);opacity:0}}
+@keyframes nfcFlota{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.nfc__tarjeta{animation:none}.nfc__ondas i{animation:none;opacity:.25;transform:scale(1)}.nfc__ondas i:nth-child(2),.nfc__ondas i:nth-child(3){display:none}}
+
+/* Etiqueta "Lista para NFC" en los proyectos */
+.chips .chip--nfc{display:inline-flex;align-items:center;gap:6px;border-color:rgba(140,168,255,.45);color:var(--brand-on-dark);background:rgba(47,91,240,.12)}
+.chips .chip--nfc .ico{width:15px;height:15px}
+
+/* Seis enlaces en el menú: un poco más juntos en pantallas medianas */
+@media (min-width:900px) and (max-width:1199px){.nav__links{gap:18px}.nav__links a{font-size:.9rem}}
+
+/* ==========================================================
+   FUFI: capturas dentro de su aparato (MacBook, iPad, iPhone)
+   ========================================================== */
+.dispositivos{position:relative;display:block;aspect-ratio:16/11;padding:0;
+  background:radial-gradient(60% 55% at 70% 30%,rgba(200,255,60,.16),transparent 70%),radial-gradient(50% 50% at 15% 85%,rgba(255,106,40,.16),transparent 70%),linear-gradient(160deg,#141A12,#0B0E0A)}
+.disp{position:absolute;margin:0}
+.disp__pantalla{position:relative;overflow:hidden;background:#000}
+.disp__pantalla img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+/* MacBook: pantalla 4:3 con bisel y base */
+.disp--mac{left:16%;top:7%;width:68%;z-index:1}
+.disp--mac .disp__pantalla{aspect-ratio:4/3;border:clamp(5px,.9vw,10px) solid #0C0C0E;border-bottom-width:clamp(12px,1.8vw,20px);border-radius:clamp(8px,1.2vw,14px) clamp(8px,1.2vw,14px) 4px 4px;box-shadow:0 0 0 1px #3A3D44,0 30px 60px -25px rgba(0,0,0,.8)}
+.disp__base{position:relative;left:-9%;width:118%;height:clamp(7px,1.1vw,13px);border-radius:0 0 clamp(10px,1.4vw,18px) clamp(10px,1.4vw,18px);background:linear-gradient(180deg,#C9CCD3,#8D9099);box-shadow:0 14px 24px -10px rgba(0,0,0,.7)}
+.disp__base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:45%;transform:translateX(-50%);border-radius:0 0 8px 8px;background:#7D8089}
+/* iPad: 3:4 vertical */
+.disp--ipad{left:4%;bottom:5%;width:31%;z-index:2}
+.disp--ipad .disp__pantalla{aspect-ratio:3/4;border:clamp(5px,.8vw,9px) solid #0C0C0E;border-radius:clamp(12px,1.6vw,20px);box-shadow:0 0 0 1px #3A3D44,0 30px 50px -20px rgba(0,0,0,.85)}
+/* iPhone: 920 x 2000 */
+.disp--iphone{right:5%;bottom:4%;width:18%;z-index:3}
+.disp--iphone .disp__pantalla{aspect-ratio:920/2000;border:clamp(4px,.6vw,7px) solid #0C0C0E;border-radius:clamp(16px,2.2vw,28px);box-shadow:0 0 0 1px #3A3D44,0 30px 50px -18px rgba(0,0,0,.9)}
+/* la galería conserva su proporción y no empuja ni tapa el texto */
+.dispositivos{width:100%;height:auto;align-self:center;background:none}
+.proyecto--fufi{background:radial-gradient(40% 60% at 25% 35%,rgba(200,255,60,.12),transparent 70%),radial-gradient(35% 50% at 10% 90%,rgba(255,106,40,.12),transparent 70%),linear-gradient(90deg,#10140E 0%,#10140E 55%,var(--surface) 55%)}
+@media (max-width:899px){.proyecto--fufi{background:var(--surface)}.dispositivos{background:radial-gradient(60% 55% at 70% 30%,rgba(200,255,60,.16),transparent 70%),linear-gradient(160deg,#141A12,#0B0E0A)}}
+@media (min-width:900px){.proyecto--fufi{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}}
+/* aparatos un poco más grandes */
+.disp--mac{left:12%;top:6%;width:76%}
+.disp--ipad{left:3%;bottom:4%;width:33%}
+.disp--iphone{right:3%;bottom:3%;width:20%}
